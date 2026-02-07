@@ -16,7 +16,7 @@ nextBtn.onclick = () => {
     textEl.innerText = messages[index];
 
     // ✅ Start music when the SECOND message appears
-    if (index === 1) {
+    if (index === 0) {
       bgMusic.play();
     }
 
@@ -33,8 +33,6 @@ function moveNo() {
   no.style.top = Math.random() * 200 + "px";
   no.style.right = Math.random() * 200 + "px";
   no.style.bottom = Math.random() * 200 + "px";
-  const messageDiv = document.getElementById("message");
-  messageDiv.textContent = "No seems a bit shy 👉👈";
 }
 
 function yesClicked() {
