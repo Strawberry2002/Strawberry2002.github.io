@@ -1,8 +1,8 @@
 const messages = [
-  "From the moment I met you 💫",
-  "You became my favorite thought 💭",
-  "My happiest place is with you ❤️",
-  "And now..."
+  "Strawberry met Kitten one beautiful day 🐱",
+  "And life became sweeter 🍓",
+  "Every smile of Kitten melts Strawberry’s heart ❤️",
+  "So today, Strawberry asks..."
 ];
 
 let index = 0;
@@ -27,3 +27,8 @@ function yesClicked() {
   document.getElementById("proposal").classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
 }
+
+document.getElementById("musicBtn").onclick = () => {
+  const music = document.getElementById("bgMusic");
+  music.play();
+};
