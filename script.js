@@ -6,14 +6,24 @@ const messages = [
 
 let index = 0;
 
-document.getElementById("nextBtn").onclick = () => {
+const textEl = document.getElementById("text");
+const nextBtn = document.getElementById("nextBtn");
+const proposalEl = document.getElementById("proposal");
+const bgMusic = document.getElementById("bgMusic");
+
+nextBtn.onclick = () => {
   if (index < messages.length) {
-    document.getElementById("text").innerText = messages[index];
+    textEl.innerText = messages[index];
+
+    // ✅ Start music when the SECOND message appears
+    if (index === 1) {
+      bgMusic.play();
+    }
+
     index++;
   } else {
-    document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("proposal").classList.remove("hidden");
-    document.getElementById("bgMusic").play();
+    nextBtn.style.display = "none";
+    proposalEl.classList.remove("hidden");
   }
 };
 
@@ -23,7 +33,8 @@ function moveNo() {
   no.style.top = Math.random() * 200 + "px";
   no.style.right = Math.random() * 200 + "px";
   no.style.bottom = Math.random() * 200 + "px";
-  no.textContent = "No seems a bit shy 👉👈";
+  const messageDiv = document.getElementById("message");
+  messageDiv.textContent = "No seems a bit shy 👉👈";
 }
 
 function yesClicked() {
