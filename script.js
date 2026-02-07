@@ -1,8 +1,7 @@
 const messages = [
-  "Strawberry met Kitten one beautiful day 🐱",
-  "And life became sweeter 🍓",
-  "Every smile of Kitten melts Strawberry’s heart ❤️",
-  "So today, Strawberry asks..."
+  "Strawberry 🍓 met Kitten 🐱 one beautiful day (or night 😉)",
+  "And life became sugar sweet 🍰",
+  "So today, on 8th February, Strawberry asks..."
 ];
 
 let index = 0;
