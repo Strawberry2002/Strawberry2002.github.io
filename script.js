@@ -32,7 +32,6 @@ function moveNo() {
   no.style.left = Math.random() * 200 + "px";
   no.style.top = Math.random() * 200 + "px";
 }
-
 function yesClicked() {
   document.getElementById("proposal").classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
