@@ -26,9 +26,26 @@ function moveNo() {
 function yesClicked() {
   document.getElementById("proposal").classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
-}
 
-document.getElementById("musicBtn").onclick = () => {
+  // 💥 Heart explosion
+  const duration = 3 * 1000;
+  const end = Date.now() + duration;
+
+  (function frame() {
+    confetti({
+      particleCount: 7,
+      spread: 70,
+      origin: { y: 0.6 },
+      shapes: ['heart'],
+      colors: ['#ff4d6d', '#ff85a1', '#ffccd5']
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+}
+t.getElementById("musicBtn").onclick = () => {
   const music = document.getElementById("bgMusic");
   music.play();
 };
