@@ -13,6 +13,7 @@ document.getElementById("nextBtn").onclick = () => {
   } else {
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("proposal").classList.remove("hidden");
+    document.getElementById("bgMusic").play();
   }
 };
 
