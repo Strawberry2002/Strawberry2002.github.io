@@ -5,21 +5,24 @@ const messages = [
 ];
 
 let index = 0;
+let musicStarted = false;
+let shyShown = false;
 
 const textEl = document.getElementById("text");
 const nextBtn = document.getElementById("nextBtn");
 const proposalEl = document.getElementById("proposal");
 const bgMusic = document.getElementById("bgMusic");
+const shyMsg = document.getElementById("shyMsg");
 
 nextBtn.onclick = () => {
+  // 🎵 Start music immediately on first click
+  if (!musicStarted) {
+    bgMusic.play();
+    musicStarted = true;
+  }
+
   if (index < messages.length) {
     textEl.innerText = messages[index];
-
-    // ✅ Start music when the SECOND message appears
-    if (index === 0) {
-      bgMusic.play();
-    }
-
     index++;
   } else {
     nextBtn.style.display = "none";
@@ -29,32 +32,40 @@ nextBtn.onclick = () => {
 
 function moveNo() {
   const no = document.querySelector(".no");
-  no.style.left = Math.random() * 200 + "px";
-  no.style.top = Math.random() * 200 + "px";
+
+  // 🐱 Show shy message only once
+  if (!shyShown) {
+    shyMsg.classList.remove("hidden");
+    shyShown = true;
+  }
+
+  const container = document.querySelector(".container");
+  const maxX = container.offsetWidth - no.offsetWidth - 20;
+  const maxY = container.offsetHeight - no.offsetHeight - 20;
+
+  no.style.left = Math.random() * maxX + "px";
+  no.style.top = Math.random() * maxY + "px";
 }
+
 function yesClicked() {
-  document.getElementById("proposal").classList.add("hidden");
+  proposalEl.classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
+  textEl.style.display = "none";
+  shyMsg.style.display = "none";
 
-  // 🔹 Hide the previous message text
-  document.getElementById("text").style.display = "none";
-
-  // 💥 Heart explosion (if you already added it)
-  const duration = 3 * 1000;
+  // 💥 Heart explosion
+  const duration = 3000;
   const end = Date.now() + duration;
 
   (function frame() {
     confetti({
-      particleCount: 7,
-      spread: 70,
+      particleCount: 8,
+      spread: 80,
       origin: { y: 0.6 },
       shapes: ['heart'],
       colors: ['#ff4d6d', '#ff85a1', '#ffccd5']
     });
 
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
+    if (Date.now() < end) requestAnimationFrame(frame);
   })();
-};
-
+}
