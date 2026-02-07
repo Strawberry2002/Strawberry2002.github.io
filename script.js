@@ -23,7 +23,7 @@ function moveNo() {
   no.style.top = Math.random() * 200 + "px";
   no.style.right = Math.random() * 200 + "px";
   no.style.bottom = Math.random() * 200 + "px";
-  alert("No seems a bit shy 👉👈");
+  no.textContent = "No seems a bit shy 👉👈";
 }
 
 function yesClicked() {
