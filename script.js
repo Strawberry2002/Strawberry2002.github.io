@@ -27,7 +27,10 @@ function yesClicked() {
   document.getElementById("proposal").classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
 
-  // 💥 Heart explosion
+  // 🔹 Hide the previous message text
+  document.getElementById("text").style.display = "none";
+
+  // 💥 Heart explosion (if you already added it)
   const duration = 3 * 1000;
   const end = Date.now() + duration;
 
@@ -45,7 +48,4 @@ function yesClicked() {
     }
   })();
 }
-t.getElementById("musicBtn").onclick = () => {
-  const music = document.getElementById("bgMusic");
-  music.play();
-};
+
