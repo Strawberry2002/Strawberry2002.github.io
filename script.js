@@ -31,8 +31,6 @@ function moveNo() {
   const no = document.querySelector(".no");
   no.style.left = Math.random() * 200 + "px";
   no.style.top = Math.random() * 200 + "px";
-  no.style.right = Math.random() * 200 + "px";
-  no.style.bottom = Math.random() * 200 + "px";
 }
 
 function yesClicked() {
