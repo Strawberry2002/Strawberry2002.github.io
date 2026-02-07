@@ -1,7 +1,7 @@
 const messages = [
   "Strawberry 🍓 met Kitten 🐱 one beautiful day (or night 😉)",
   "And life became sugar sweet 🍰",
-  "So today, on 8th February, Strawberry asks..."
+  "So today, on 8th February, Strawberry asks 🤭..."
 ];
 
 let index = 0;
@@ -20,6 +20,7 @@ function moveNo() {
   const no = document.querySelector(".no");
   no.style.left = Math.random() * 200 + "px";
   no.style.top = Math.random() * 200 + "px";
+  alert("No seems a bit shy 👉👈");
 }
 
 function yesClicked() {
