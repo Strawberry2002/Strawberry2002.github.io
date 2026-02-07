@@ -22,7 +22,10 @@ nextBtn.onclick = () => {
   }
 
   if (index < messages.length) {
+    textEl.classList.remove("fade");
+    void textEl.offsetWidth; // reset animation
     textEl.innerText = messages[index];
+    textEl.classList.add("fade");
     index++;
   } else {
     nextBtn.style.display = "none";
@@ -69,3 +72,17 @@ function yesClicked() {
     if (Date.now() < end) requestAnimationFrame(frame);
   })();
 }
+
+// 🌸 Floating hearts generator
+const heartsContainer = document.querySelector(".hearts");
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+  heartsContainer.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 10000);
+}, 800);
